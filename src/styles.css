@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+
+/*
+  FOMO's palette on dark glass. FOMO's typeface is Aeonik: it is used when the page has it, and Geist stands in when it does not (the font files are not in this repo).
+  Import this file once in the app that uses the kit.
+*/
+@theme static {
+  --font-sans: "Aeonik", "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #060510;
+  --color-card: #100f1b;
+  --color-ink: #f7f7f7;
+  --color-ink-2: #a3a5b3;
+  --color-ink-3: #6c6f7e;
+  --color-up: #21c95e;
+  --color-down: #ff622e;
+  --color-fomo: #516af6;
+  --color-sky: #aebbff;
+
+  --text-micro: 10px;
+  --text-caption: 11px;
+  --text-note: 12px;
+  --text-chip: 13px;
+  --text-label: 14px;
+  --text-title: 16px;
+  --text-figure: 18px;
+  --text-display: 28px;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* something for the glass to sit in front of: FOMO's indigo, far off */
+.fomo-backdrop {
+  background:
+    radial-gradient(1100px 620px at 74% -12%, rgb(81 106 246 / 0.22), transparent 62%),
+    radial-gradient(820px 560px at -6% 108%, rgb(122 82 246 / 0.16), transparent 60%),
+    var(--color-paper);
+}
+
+/* the room is one sheet of glass */
+.glass {
+  background: rgb(22 21 38 / 0.62);
+  backdrop-filter: blur(28px) saturate(140%);
+  box-shadow:
+    inset 0 0 0 1px rgb(203 208 235 / 0.09),
+    inset 0 1px 0 rgb(255 255 255 / 0.07),
+    0 24px 48px -28px rgb(0 0 0 / 0.9);
+  border-radius: 20px;
+}
+
+/* what opens over the room: a sheet, a thesis card */
+.glass-pop {
+  background: rgb(27 26 46 / 0.94);
+  backdrop-filter: blur(32px) saturate(160%);
+  box-shadow:
+    inset 0 0 0 1px rgb(203 208 235 / 0.14),
+    inset 0 1px 0 rgb(255 255 255 / 0.1),
+    0 28px 60px -24px rgb(0 0 0 / 0.85);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
